@@ -11,15 +11,12 @@ def summary(request):
     if content:
         TextRankSentence = JClass("com.hankcs.hanlp.summary.TextRankSentence")
         sentence_list = HanLP.extractSummary(content, 2)
-        keyword_list = HanLP.extractWords(content, 5)
-        sentence = '，'.join(sentence_list)
-        if len(str(keyword_list)) > 2:
-            keyword = str(keyword_list)[1:-1].replace(", ", "、")
-        else:
-            keyword = "字数过低，无法提取"
+        keyword = HanLP.extractPhrase(content, 5)
+        sentence = str(sentence_list)[1:-1].split(', ')
+        keyword_list = str(keyword)[1:-1].split(', ')
         data = {
             'summary': sentence,
-            'keyword': keyword
+            'keyword': keyword_list
         }
         return JsonResponse(data)
     # ctx = {'summary': sentence_list}

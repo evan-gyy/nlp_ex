@@ -9,3 +9,6 @@ def text_title(request):
 
 def text_content(request):
     return render(request, 'templates/show_pages/text_content.html')
+
+def spread_wci(request):
+    return render(request, 'templates/show_pages/spread_wci.html')

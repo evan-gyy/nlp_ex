@@ -18,6 +18,10 @@
 <script type="text/javascript" src="/static/js/perfect-scrollbar.min.js"></script>
 <script type="text/javascript" src="/static/js/main.min.js"></script>
 <script type="text/javascript" scr="/static/js/echarts.min.js"></script>
+  <script src="/static/js/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="/static/js/jquery.svg3dtagcloud.min.js"></script>
+
+
 </head>
   
 <body>
@@ -266,7 +270,7 @@
                 <div class="card-header"><h4>情感分析</h4></div>
                 <div class="card-body" style="width: 900px;height: 340px;">
                    <div id="pie" style="width: 420px;height: 300px;float:left;display:inline;"></div>
-                   <div id='tag-cloud' style="width: 420px;height: 300px;float:left;display:inline;"></div>
+                  <div id='tag-cloud' style="width: 420px;height: 300px;float:left;display:inline;"></div>
                 </div>
               </div>
           </div>
@@ -281,19 +285,114 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table table-bordered">
+                  <table class="table table-hover">
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th style="width:300px">标题</th>
+                        <th>标题</th>
                         <th>作者</th>
                         <th>发布时间</th>
                         <th>情感</th>
-                        <th>地址</th>
+                        <th>新闻链接</th>
                       </tr>
                     </thead>
                     <tbody id="list">
-                      
+                      <tr>
+                        <td>1</td>
+                        <td>设计新主题</td>
+                        <td>澎湃新闻</td>
+                        <td>12/05/2019</td>
+                        <td><span class="label label-warning">待定</span></td>
+                        <td>
+                          <div class="progress progress-striped progress-sm">
+                            <div class="progress-bar progress-bar-warning" style="width: 45%;"></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>网站重新设计</td>
+                        <td>澎湃新闻</td>
+                       <td>12/04/2019</td>
+                        <td><span class="label label-success">进行中</span></td>
+                        <td>
+                          <div class="progress progress-striped progress-sm">
+                            <div class="progress-bar progress-bar-success" style="width: 30%;"></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>模型设计</td>
+                         <td>澎湃新闻</td>
+                         <td>12/11/2019</td>
+                        <td><span class="label label-warning">待定</span></td>
+                        <td>
+                          <div class="progress progress-striped progress-sm">
+                            <div class="progress-bar progress-bar-warning" style="width: 25%;"></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>后台管理系统模板设计</td>
+                        <td>澎湃新闻</td>
+                        <td>09/05/2019</td>
+                        <td><span class="label label-success">进行中</span></td>
+                        <td>
+                          <div class="progress progress-striped progress-sm">
+                            <div class="progress-bar progress-bar-success" style="width: 55%;"></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td>前端设计</td>
+                        <td>澎湃新闻</td>
+                        <td>12/12/2019</td>
+                        <td><span class="label label-danger">未开始</span></td>
+                        <td>
+                          <div class="progress progress-striped progress-sm">
+                            <div class="progress-bar progress-bar-danger" style="width: 0%;"></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>6</td>
+                        <td>桌面软件测试</td>
+                        <td>澎湃新闻</td>
+                        <td>29/03/2019</td>
+                        <td><span class="label label-success">进行中</span></td>
+                        <td>
+                          <div class="progress progress-striped progress-sm">
+                            <div class="progress-bar progress-bar-success" style="width: 75%;"></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>7</td>
+                        <td>APP改版开发</td>
+                        <td>澎湃新闻</td>
+                        <td>12/05/2019</td>
+                        <td><span class="label label-danger">暂停</span></td>
+                        <td>
+                          <div class="progress progress-striped progress-sm">
+                            <div class="progress-bar progress-bar-danger" style="width: 15%;"></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td>Logo设计</td>
+                        <td>澎湃新闻</td>
+                        <td>01/03/2019</td>
+                        <td><span class="label label-warning">完成</span></td>
+                        <td>
+                          <div class="progress progress-striped progress-sm">
+                            <div class="progress-bar progress-bar-success" style="width: 100%;"></div>
+                          </div>
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -315,6 +414,7 @@
 <script src="/static/js/jquery-2.1.4.min.js" type="text/javascript"></script>
 <script src="/static/js/jquery.svg3dtagcloud.min.js"></script>
 <script type="text/javascript">
+
   var myChart2 = echarts.init(document.getElementById('pie'));
   var option2 = {
       tooltip: {
@@ -331,7 +431,7 @@
               name: '情感占比',
               type: 'pie',
               radius: '55%',
-              center: ['45%', '55%'],
+              center: ['50%', '55%'],
               data: [
                   {value: 0, name: '正面'},
                   {value: 1, name: '中性'},
@@ -348,43 +448,44 @@
       ]
   };
   myChart2.setOption(option2);
-  //标签云的初始化
-  // var entries = [
-  //                   { label: '腾讯新闻', url: 'https://news.qq.com/', target: '_top' },
-  //                   { label: '澎湃新闻', url: 'https://www.thepaper.cn/', target: '_top' },
-  //                   { label: '人民日报', url: 'http://www.people.com.cn/', target: '_top' },
-  //                   { label: '新华社', url: 'http://www.xinhuanet.com/', target: '_top' },
-  //                   { label: '网易新闻', url: 'https://news.163.com/', target: '_top' },
-  //                   { label: '谷歌新闻', url: 'https://news.google.com/?hl=zh-HK&gl=HK&ceid=HK:zh-Hant', target: '_top' },
-  //                   { label: 'Github', url: 'https://github.com/', target: '_top' },
-  //                   ];
-  // $( document ).ready( function() {
-  //                     var settings = {
-  //                       entries: entries,
-  //                       width: 420,
-  //                       height: 300,
-  //                       radius: '80%',
-  //                       radiusMin: 75,
-  //                       bgDraw: true,
-  //                       bgColor: '#ffffff',
-  //                       opacityOver: 1.00,
-  //                       opacityOut: 0.05,
-  //                       opacitySpeed: 6,
-  //                       fov: 800,
-  //                       speed: 0.5,
-  //                       fontFamily: 'Oswald, Arial, sans-serif',
-  //                       fontSize: '15',
-  //                       fontColor: '#7b7eff',
-  //                       fontWeight: 'normal',//boldfontStyle: 'normal',//italic
-  //                       fontStretch: 'normal',//wider, narrower, ultra-condensed, extra-condensed, condensed, semi-condensed, semi-expanded, expanded, extra-expanded, ultra-expanded
-  //                 fontToUpperCase: true
-  //                     };
-  //                     $( '#tag-cloud' ).svg3DTagCloud(settings);
-  //                } );
+//标签云的初始化
+  var entries = [
+                    { label: '腾讯新闻', url: 'https://news.qq.com/', target: '_top' },
+                    { label: '澎湃新闻', url: 'https://www.thepaper.cn/', target: '_top' },
+                    { label: '人民日报', url: 'http://www.people.com.cn/', target: '_top' },
+                    { label: '新华社', url: 'http://www.xinhuanet.com/', target: '_top' },
+                    { label: '网易新闻', url: 'https://news.163.com/', target: '_top' },
+                    { label: '谷歌新闻', url: 'https://news.google.com/?hl=zh-HK&gl=HK&ceid=HK:zh-Hant', target: '_top' },
+                    { label: 'Github', url: 'https://github.com/', target: '_top' },
+                    ];
+  $( document ).ready( function() {
+                      var settings = {
+                        entries: entries,
+                        width: 420,
+                        height: 300,
+                        radius: '80%',
+                        radiusMin: 75,
+                        bgDraw: true,
+                        bgColor: '#ffffff',
+                        opacityOver: 1.00,
+                        opacityOut: 0.05,
+                        opacitySpeed: 6,
+                        fov: 800,
+                        speed: 0.5,
+                        fontFamily: 'Oswald, Arial, sans-serif',
+                        fontSize: '15',
+                        fontColor: '#7b7eff',
+                        fontWeight: 'normal',//boldfontStyle: 'normal',//italic
+                        fontStretch: 'normal',//wider, narrower, ultra-condensed, extra-condensed, condensed, semi-condensed, semi-expanded, expanded, extra-expanded, ultra-expanded
+			            fontToUpperCase: true
+                      };
+                      $( '#tag-cloud' ).svg3DTagCloud(settings);
+                 } );
   //标签云异步加载
   var wordcloud = []
+
   $("#search_btn").click(function () {
-        // if ($("#search_input").val() != current_word){
+        if ($("#search_input").val() != current_word){
           current_word = $("#search_input").val()
           console.log(current_word)
           var token = $('input[name=csrfmiddlewaretoken]').val();
@@ -408,21 +509,10 @@
                           ],
                       }]
                   });
-                  // wordcloud
-                  pos_word = res.word.pos_word
-                  pos_word_list = []
-                  for (let i = 0; i <= pos_word.length-1; i++) {
-                    let pw = pos_word[i];
-                    pos_word_list.push({
-                      label: pw, 
-                      url: '#', 
-                      target: '_top'
-                    })
-                  }
-                  // $('#tag-cloud').empty();
-                  // $( document ).ready( function() {
-                    var settings = {
-                        entries: pos_word_list,
+                  wordcloud = res.word.pos_word
+                  $( document ).ready( function() {
+                    settings = {
+                        entries: wordcloud,
                         width: 420,
                         height: 300,
                         radius: '80%',
@@ -439,13 +529,14 @@
                         fontColor: '#7b7eff',
                         fontWeight: 'normal',//boldfontStyle: 'normal',//italic
                         fontStretch: 'normal',//wider, narrower, ultra-condensed, extra-condensed, condensed, semi-condensed, semi-expanded, expanded, extra-expanded, ultra-expanded
-                  fontToUpperCase: true
+			            fontToUpperCase: true
                       };
-                  $( '#tag-cloud' ).svg3DTagCloud(settings);
-                 // } );
+                      $( '#tag-cloud' ).svg3DTagCloud(settings);
+                 } );
+
                   $("#list").empty();
                   var data = res.data;
-                  for (var i =  0; i <= data.length-1; i++) {
+                  for (var i =  0; i <= data.length; i++) {
                     var values = data[i];
                     var sentiment0="中性";
                     var class0="label label-warning";
@@ -457,20 +548,20 @@
                       class0="label label-success";
                     }
                     $("#list").append(
-                      "<tr><td style='width:1rem'>"+(i+1)+"</td>"
-                      +"<td style='width:1rem'><a href='"+values.link+"' style='color:black' target='_blank'>"+values.title+"</a></td>"
-                      +"<td style='width:1rem'>"+values.author+"</td>"
-                      +"<td style='width:1rem'>"+values.time+"</td>"
-                      +"<td style='width:1rem'><span class='"+class0+"'>"+sentiment0+"</span></td>"
-                      +"<td style='width:1rem'><a href='"+values.link+"' target='_blank'>查看</a></td></tr>"
-                    );        
+                      "<tr><td>"+(i+1)+"</td>"
+                      +"<td>"+values.title+"</td>"
+                      +"<td>"+values.author+"</td>"
+                      +"<td>"+values.time+"</td>"
+                      +"<td class='"+class0+"'>"+sentiment0+"</td>"
+                      +"<td><a href='"+values.link+"' target='_blank'>点击查看新闻</a></td></tr>"
+                    );
                   }
               },
               error: function(){
                   alert('请求数据错误，请稍后再试');
               }
           })
-        // }else{console.log("重复输入")}
+        }else{console.log("重复输入")}
   })
 
 </script>

@@ -16,7 +16,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
+LOGIN_URL='/index'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -26,7 +26,7 @@ SECRET_KEY = '$mmn(-5$25635hb(jo!xo73@g8351e*9#44ik)i*tr*^$pb4-%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
@@ -127,3 +127,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Session
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_NAME = "sessionid"
+SESSION_COOKIE_PATH = "/"
+SESSION_COOKIE_DOMAIN = None
+SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_AGE = 43200 # 12 hours
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_SAVE_EVERY_REQUEST = False
